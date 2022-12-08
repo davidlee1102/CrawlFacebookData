@@ -4,9 +4,10 @@ from rest_framework.response import Response
 from rest_framework.request import Request
 
 from EVNCrawlFacebook.selenium.utils import facebook_login
-
+from EVNCrawlFacebook.utils import get_comments
 
 import time
+
 
 @api_view(["POST"])
 def get_comment(request: Request):
@@ -19,14 +20,17 @@ def get_comment(request: Request):
     data = request.data
     link_request = data.get("link_post", "")
     number_comment = data.get("number_comment", "")
+    if not number_comment:
+        number_comment = 0
+
+    messsage = {
+        'message': 'error input'
+    }
     if not link_request or not isinstance(number_comment, int):
-        messsage = {
-            'message': 'error input'
-        }
         return Response(messsage, status=status.HTTP_400_BAD_REQUEST)
     else:
-        messsage = {
-            'message': 'successful check'
-        }
-        facebook_login.login()
-        return Response(messsage, status=status.HTTP_200_OK)
+        comments_list = get_comments.process_comment(link_request, number_comment)
+        if not comments_list:
+            return Response(messsage, status=status.HTTP_400_BAD_REQUEST)
+        else:
+            return Response(comments_list, status=status.HTTP_200_OK)

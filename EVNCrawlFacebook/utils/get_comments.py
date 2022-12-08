@@ -7,8 +7,6 @@ from EVNCrawlFacebook.utils import pre_process_selenium
 
 import time
 
-# from apicrawler.utils.link_processing import post_processing_user_link
-
 
 def check_more_comments(
         driver: WebDriver,
@@ -82,7 +80,7 @@ def get_small_comments(driver: WebDriver, post_id: str) -> List[Dict[str, str]]:
 
     for user_info in user_infors:
         user_info_dict = {}
-        user_info_dict['link_user_account'] = post_processing_user_link(
+        user_info_dict['link_user_account'] = pre_process_selenium.post_processing_user_link(
             user_info.get_attribute('href')
         )
         user_info_dict['user_name'] = user_info.text
@@ -93,10 +91,6 @@ def get_small_comments(driver: WebDriver, post_id: str) -> List[Dict[str, str]]:
 
     return users_list
 
-
-"""
-Below is okay
-"""
 
 def crawler_comments(post_link: str, post_id: str):
     driver = facebook_login.login()
