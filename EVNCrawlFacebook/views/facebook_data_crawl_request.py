@@ -3,10 +3,7 @@ from rest_framework.decorators import api_view
 from rest_framework.response import Response
 from rest_framework.request import Request
 
-from EVNCrawlFacebook.selenium.utils import facebook_login
 from EVNCrawlFacebook.utils import get_comments
-
-import time
 
 
 @api_view(["POST"])
