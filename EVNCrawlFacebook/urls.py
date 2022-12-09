@@ -6,7 +6,6 @@ from django.conf.urls import (
 )
 
 urlpatterns = [
-    path('health_check/', health_check.health_check),
     path('comment_check/', facebook_data_crawl_request.get_comment),
     path('', health_check.health_check),
 ]

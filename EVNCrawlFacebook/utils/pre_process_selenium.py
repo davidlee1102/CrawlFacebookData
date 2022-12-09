@@ -50,6 +50,8 @@ def get_post_id_from_post_link(link_post: str) -> str:
     match = re.compile(r"posts/(.*)")
     try:
         link_post = match.search(link_post).group(1)
+        if "/" in link_post:
+            link_post = link_post.replace("/", "")
     except:
         return link_post
 

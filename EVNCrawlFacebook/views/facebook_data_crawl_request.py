@@ -10,10 +10,12 @@ from EVNCrawlFacebook.utils import get_comments
 def get_comment(request: Request):
     """Example
     {
-        "link_post": "https://www.facebook.com/groups/630943070407078/subgroups/1331640773991372/posts/1444534716035310/",
+        "link_post": "https://mbasic.facebook.com/groups/www.happynest.vn/posts/1331912194317546/",
         "number_comment": 5
     }
     """
+
+    # https://www.facebook.com/groups/www.happynest.vn/posts/1364108884431210/
     data = request.data
     link_request = data.get("link_post", "")
     number_comment = data.get("number_comment", "")
