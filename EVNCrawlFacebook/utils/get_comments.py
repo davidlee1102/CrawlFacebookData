@@ -28,15 +28,15 @@ def check_more_comments(
     try:
         if len(text_check) > 0 and "Xem thêm bình luận" in text_check[0].text:
             comments_list.extend(get_large_comments(driver, post_id))
-            # url = driver.find_element(
-            #     by=By.XPATH,
-            #     value=f'//*[@id="ufi_{post_id}"]/div/div[4]/div/a'
-            # ).get_attribute('href')
-            # driver.get(url)
-            # try:
-            #     comments_list.extend(check_more_comments(driver, post_id))
-            # except:
-            #     print('Error View previous comments')
+            url = driver.find_element(
+                by=By.XPATH,
+                value=f'//*[@id="see_next_{post_id}"]/a'
+            ).get_attribute('href')
+            driver.get(url)
+            try:
+                comments_list.extend(check_more_comments(driver, post_id))
+            except:
+                print('Error View previous comments')
         else:
             comments_list.extend(get_small_comments(driver, post_id))
         return comments_list
