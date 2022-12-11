@@ -11,10 +11,23 @@ Dự án có thể áp dụng để quét data dạng lớn, đồng thời lưu
 ---------
 
 Các tính năng chính:
+ * Thu thập bình luận từ bài post
+ * Thu thập các bài post gần đây (đang phát triển)
+ * Thu thập thông tin chung của bài post (đang phát triển)
+ * 
+---
+Các tính năng phát triển tương lai:
+
+* Phân tích mức độ tương tác của các thành viên
+* Cảnh báo spam ở các bài post
+
+
 
 ___
 
-| STT | Tính Năng | Ngày Hoàn Thành | Hướng Dẫn Sử Dụng |
-|:---:|:---------:|:---------------:|:-----------------:|
-|  1  |    301    |       283       |                   |
+| STT |             Tính Năng              | Ngày Hoàn Thành | Hướng Dẫn Sử Dụng |
+|:---:|:----------------------------------:|:---------------:|:-----------------:|
+|  1  | Thu Thập Bình Luận Từ Một Bài Post |   11/12/2023    |        N/A        |
+|  2  |                                    |                 |        N/A        |
+
 
