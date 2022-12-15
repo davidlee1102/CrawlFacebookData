@@ -7,6 +7,7 @@ from django.conf.urls import (
 
 urlpatterns = [
     path('comment_check/', facebook_data_crawl_request.get_comment),
-    path('comment_check/download_file/', file_request.download_file),
+    path('general_info_check/', facebook_data_crawl_request.get_general_information),
     path('', health_check.health_check),
+    # path('comment_check/download_file/', file_request.download_file),
 ]
