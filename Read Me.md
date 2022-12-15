@@ -30,4 +30,20 @@ ___
 |  1  | Thu Thập Bình Luận Từ Một Bài Post |   11/12/2023    |        N/A        |
 |  2  |                                    |                 |        N/A        |
 
+---
 
+1. Redis
+2. Celery
+Test celery: 
+```bash
+python manage.py shell
+```
+```bash
+from EVNCrawlFacebookData.celery import debug_task
+```
+```bash
+debug_task.delay()
+```
+```bash
+celery -A proj worker -l INFO
+```

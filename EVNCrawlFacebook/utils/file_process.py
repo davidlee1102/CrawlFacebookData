@@ -1,5 +1,3 @@
-import os
-
 import pandas as pd
 
 
@@ -19,4 +17,3 @@ def convert_list_to_json(data_list: list):
         return True
     else:
         return False
-

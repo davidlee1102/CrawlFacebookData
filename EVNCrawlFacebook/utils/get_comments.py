@@ -60,7 +60,7 @@ def get_large_comments(driver: WebDriver, post_id: str) -> List[Dict[str, str]]:
 
     for user_info in user_infors:
         user_info_dict = {}
-        user_info_dict['user_info_link'] = user_info.get_attribute('href')
+        user_info_dict['user_info_link'] = user_info.get_attribute('href').replace("mbasic.", "").split("eav=")[0]
         user_info_dict['user_info_name'] = user_info.text
         users_list.append(user_info_dict)
     for i in range(0, len(users_list)):
