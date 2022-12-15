@@ -7,7 +7,6 @@ from rest_framework.response import Response
 from rest_framework.request import Request
 
 from EVNCrawlFacebook.utils import get_comments, file_process, response_message_process
-from django.http import HttpResponsePermanentRedirect, HttpResponseRedirect
 
 
 @api_view(["POST"])
@@ -33,7 +32,6 @@ def get_comment(request: Request):
         else:
             file_creation_check = file_process.convert_list_to_json(comments_list)
             if file_creation_check:
-
-                return HttpResponseRedirect('download_file/')
+                return Response(comments_list, status=status.HTTP_200_OK)
             else:
                 return Response(comments_list, status=status.HTTP_200_OK)
