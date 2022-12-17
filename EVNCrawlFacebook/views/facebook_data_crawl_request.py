@@ -52,3 +52,19 @@ def get_general_information(request: Request):
         if not general_info:
             return Response(response_message_process.status_response('error input'), status=status.HTTP_404_NOT_FOUND)
         return Response(general_info, status=status.HTTP_200_OK)
+
+
+@api_view(["POST"])
+def get_specific_information(request: Request):
+    """Example
+       {
+           "link_post": "https://mbasic.facebook.com/groups/www.happynest.vn/posts/1366498990858866/"
+       }
+       """
+    data = request.data
+    link_request = data.get("link_post", "")
+    if not link_request:
+        return Response(response_message_process.status_response('error input'), status=status.HTTP_400_BAD_REQUEST)
+    else:
+        specific_info_list = []
+        return Response(specific_info_list, status=status.HTTP_200_OK)
