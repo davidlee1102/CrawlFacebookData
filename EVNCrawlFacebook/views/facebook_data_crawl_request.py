@@ -5,7 +5,8 @@ from rest_framework.decorators import api_view
 from rest_framework.response import Response
 from rest_framework.request import Request
 
-from EVNCrawlFacebook.utils import get_comments, file_process, response_message_process, get_general_post
+from EVNCrawlFacebook.utils import get_comments, file_process, response_message_process, \
+    get_general_post, get_specific_post
 
 
 @api_view(["POST"])
@@ -66,5 +67,5 @@ def get_specific_information(request: Request):
     if not link_request:
         return Response(response_message_process.status_response('error input'), status=status.HTTP_400_BAD_REQUEST)
     else:
-        specific_info_list = []
+        specific_info_list = get_specific_post.process_specific_info(link_request)
         return Response(specific_info_list, status=status.HTTP_200_OK)
