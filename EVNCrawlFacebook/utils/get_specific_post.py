@@ -16,6 +16,9 @@ def crawler_specific_info(post_link: str, post_id: str):
     driver.get(post_link)
     time.sleep(2)
     xpath_address = f'//*[@id="sentence_{post_id}"]/a'
+
+    xpath_address_share = f'/html/body/div[1]/div/div[4]/div/div[1]/div[1]/div/div/div[2]/div/div/div[3]/a'
+    share_link = driver.find_element(by=By.XPATH, value=xpath_address_share).get_attribute('href')
     interaction_link = driver.find_element(by=By.XPATH, value=xpath_address).get_attribute('href')
     driver.get(interaction_link)
 
@@ -70,6 +73,18 @@ def crawler_specific_info(post_link: str, post_id: str):
                     specific_info_list.append(specific_info_json)
         except:
             continue
+    driver.get(share_link)
+    xpath_address = f'//*[@id="root"]/div[1]/div/div/div'
+    try:
+        share_list = driver.find_element(by=By.XPATH, value=xpath_address).text
+        if 'Không tìm thấy kết quả nào.' is share_list:
+            pass
+        else:
+            # still here, fix get share link (care)
+            pass
+    except:
+        pass
+
     return specific_info_list
 
 

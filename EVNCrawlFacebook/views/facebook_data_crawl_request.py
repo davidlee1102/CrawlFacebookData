@@ -11,7 +11,7 @@ from EVNCrawlFacebook.utils import get_comments, file_process, response_message_
 def get_comment(request: Request):
     """Example
     {
-        "link_post": "https://mbasic.facebook.com/groups/www.happynest.vn/posts/1366498990858866/",
+        "link_post": "https://mbasic.facebook.com/groups/www.happynest.vn/posts/1144396696402431/",
         "number_comment": 5
     }
     """
@@ -66,5 +66,5 @@ def get_specific_information(request: Request):
         return Response(response_message_process.status_response('error input'), status=status.HTTP_400_BAD_REQUEST)
     else:
         specific_info_list = get_specific_post.process_specific_info(link_request)
-        file_creation_check = file_process.convert_list_reaction_to_json(specific_info_list)
+        file_process.convert_list_reaction_to_json(specific_info_list)
         return Response(specific_info_list, status=status.HTTP_200_OK)
