@@ -26,13 +26,13 @@ def crawler_specific_info(post_link: str, post_id: str):
         reaction_type.click()
         time.sleep(2)
         try:
-            # need to fix error reaction type
-            # try:
-            #     reaction_type_text = \
-            #     reaction_type.find_element(by=By.TAG_NAME, value='span').get_attribute('area-label').split(" ")[-1]
-            #     print(reaction_type_text)
-            # except:
-            #     print('error here')
+            try:
+                reaction_type_text = reaction_type.find_element(by=By.TAG_NAME, value='span') \
+                    .get_attribute('area-label')
+                #     .split(" ")[-1]
+                print(reaction_type_text)
+            except:
+                print('error here')
             reaction_type = json.loads(reaction_type.get_attribute('data-store'))
             if reaction_type.get("reactionID", "") is 'all':
                 continue

@@ -32,6 +32,13 @@ def login() -> WebDriver:
     # Open the webpage
     driver.get("http://www.facebook.com")
 
+    try:
+        button_allow_cookies_list = driver.find_elements(by=By.XPATH,
+                                                         value='//*[@id="facebook"]/body/div[3]/div[2]/div/div/div/div/div[3]/button')
+        button_allow_cookies_list[0].click()
+    except:
+        pass
+
     '''Enter username, password'''
     username: WebElement = WebDriverWait(driver, 10).until(
         EC.element_to_be_clickable((
