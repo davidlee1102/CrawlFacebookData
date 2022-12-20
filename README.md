@@ -11,7 +11,8 @@ Dự án có thể áp dụng để quét data dạng lớn, đồng thời lưu
 ---------
 
 Các tính năng chính:
- * Thu thập bình luận từ bài post
+ * Thu thập bình luận từ bài post (nội dung comment, người comment, link người comment)
+ * Thu thập thông tin reaction từ bài post (thể loại reaction, số lượng reaction, )
  * Thu thập các bài post gần đây (đang phát triển)
  * Thu thập thông tin chung của bài post (đang phát triển)
  * 
@@ -25,10 +26,10 @@ Các tính năng phát triển tương lai:
 
 ___
 
-| STT |             Tính Năng              | Ngày Hoàn Thành | Hướng Dẫn Sử Dụng |
-|:---:|:----------------------------------:|:---------------:|:-----------------:|
-|  1  | Thu Thập Bình Luận Từ Một Bài Post |   11/12/2023    |        N/A        |
-|  2  |                                    |                 |        N/A        |
+| STT |                  Tính Năng                  | Ngày Hoàn Thành | Hướng Dẫn Sử Dụng |
+|:---:|:-------------------------------------------:|:---------------:|:-----------------:|
+|  1  |     Thu Thập Bình Luận Từ Một Bài Post      |   11/12/2022    |        N/A        |
+|  2  | Thu Thập Thông Tin Reaction Từ Một Bài Post |   20/12/2022    |        N/A        |
 
 ---
 
