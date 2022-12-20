@@ -1,4 +1,4 @@
 # ignore ALL .yml files
-*.yml
+config.yml
 *.csv
 dump.rdb

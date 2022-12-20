@@ -1,5 +1,3 @@
-import time
-
 from rest_framework import status
 from rest_framework.decorators import api_view
 from rest_framework.response import Response
@@ -30,7 +28,7 @@ def get_comment(request: Request):
         if not comments_list:
             return Response(response_message_process.status_response('error input'), status=status.HTTP_400_BAD_REQUEST)
         else:
-            file_creation_check = file_process.convert_list_to_json(comments_list)
+            file_creation_check = file_process.convert_list_comment_to_json(comments_list)
             if file_creation_check:
                 return Response(comments_list, status=status.HTTP_200_OK)
             else:
@@ -68,4 +66,5 @@ def get_specific_information(request: Request):
         return Response(response_message_process.status_response('error input'), status=status.HTTP_400_BAD_REQUEST)
     else:
         specific_info_list = get_specific_post.process_specific_info(link_request)
+        file_creation_check = file_process.convert_list_reaction_to_json(specific_info_list)
         return Response(specific_info_list, status=status.HTTP_200_OK)
