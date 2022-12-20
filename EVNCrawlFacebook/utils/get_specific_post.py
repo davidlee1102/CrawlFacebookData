@@ -6,6 +6,7 @@ from EVNCrawlFacebook.selenium.utils import facebook_login
 from EVNCrawlFacebook.utils import pre_process_selenium
 
 import time
+import re
 import json
 
 
@@ -28,11 +29,11 @@ def crawler_specific_info(post_link: str, post_id: str):
         try:
             try:
                 reaction_type_text = reaction_type.find_element(by=By.TAG_NAME, value='span') \
-                    .get_attribute('area-label')
-                #     .split(" ")[-1]
-                print(reaction_type_text)
+                    .get_attribute('aria-label')
+                match = re.compile(r'([A-Z].*)')
+                reaction_type_text = match.search(reaction_type_text).group(1) or ''
             except:
-                print('error here')
+                pass
             reaction_type = json.loads(reaction_type.get_attribute('data-store'))
             if reaction_type.get("reactionID", "") is 'all':
                 continue
@@ -55,7 +56,7 @@ def crawler_specific_info(post_link: str, post_id: str):
                 for reaction_info in reaction_info_list:
                     specific_info_json = {}
 
-                    specific_info_json['reaction_type'] = reaction_id
+                    specific_info_json['reaction_type'] = reaction_type_text
                     try:
                         specific_info_json['user_info_name'] = reaction_info.find_element(by=By.TAG_NAME,
                                                                                           value='strong').text.strip()
