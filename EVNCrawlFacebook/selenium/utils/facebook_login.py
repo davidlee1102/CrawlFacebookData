@@ -53,6 +53,7 @@ def login() -> WebDriver:
         ))
     )
 
+
     # Enter username and password
     username.clear()
     username.send_keys(cfg.USERNAME)

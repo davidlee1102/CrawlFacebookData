@@ -23,7 +23,6 @@ Các tính năng phát triển tương lai:
 * Cảnh báo spam ở các bài post
 
 
-
 ___
 
 | STT |                  Tính Năng                  | Ngày Hoàn Thành | Hướng Dẫn Sử Dụng |
